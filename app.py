@@ -8,11 +8,12 @@ def getLLamaresponse(input_text, no_Jokes, audience):
                         model_type = "llama",
                         config = {"max_new_tokens":256, 'temperature': 0.01}) 
     # in config we can also give top_k, top_p, repetition_penalty, batch_size etc link: https://github.com/marella/ctransformers#config
+    
     template = """
                 You are an AI that generates Jokes content based on the following inputs:
                 
                 Generate {no_Jokes} jokes based on the following input text: {input_text}. The jokes should be suitable for the target
-                audience, which is {audience}, and should have a moderate tone. Additionally, include relevant images to enhance the content
+                audience, which is {audience}, and should have a moderate tone. Additionally, include relevant Emojis/Gif's to enhance the content.
 
                 """
     prompt = PromptTemplate(input_variables=['audience', 'input_text', 'no_Jokes'], template=template)
